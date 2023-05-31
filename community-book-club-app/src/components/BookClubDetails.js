@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Typography, Button, List, ListItem, ListItemText } from '@mui/material';
+import { styled } from '@mui/system';
 import { bookClubs } from './bookClubData';
 import RecommendationForm from './RecommendationForm';
+
+const GradientButton = styled(Button)(({ theme }) => ({
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  border: 0,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+  color: 'white',
+  height: 48,
+  padding: '0 30px',
+  marginTop: '1rem',
+  '&:hover': {
+    background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
+  },
+}));
 
 const BookClubDetails = () => {
   const { id } = useParams();
   const selectedBookClub = bookClubs.find((bookClub) => bookClub.id === parseInt(id));
-  const [recommendations, setRecommendations] = useState([]);
+  const [recommendations, setRecommendations] = useState();
 
   if (!selectedBookClub) {
     return <Typography variant="body1">Book club not found.</Typography>;
@@ -35,19 +50,20 @@ const BookClubDetails = () => {
       </Typography>
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
-        <Button variant="contained" color="primary" onClick={handleJoinClub}>
-          Join Club
-        </Button>
+        <GradientButton onClick={handleJoinClub}>Join Club</GradientButton>
       </div>
 
-      <Typography variant="h5" align="center" gutterBottom style={{ marginTop: '2rem' }}>
+      <Typography variant="h5" align="center" gutterBottom style={{ marginTop: '2rem', color: '#333' }}>
         Recommendations
       </Typography>
 
       {recommendations.length > 0 ? (
         <List style={{ backgroundColor: '#f5f5f5', borderRadius: '8px', marginTop: '1rem' }}>
           {recommendations.map((recommendation, index) => (
-            <ListItem key={index} style={{ borderBottom: '1px solid #ccc' }}>
+            <ListItem
+              key={index}
+              style={{ borderBottom: '1px solid #ccc', backgroundColor: '#ffffff', marginBottom: '8px' }}
+            >
               <ListItemText
                 primary={`${recommendation.bookTitle} by ${recommendation.bookAuthor}`}
                 secondary={
@@ -71,7 +87,7 @@ const BookClubDetails = () => {
         </Typography>
       )}
 
-      <Typography variant="h5" align="center" gutterBottom style={{ marginTop: '2rem' }}>
+      <Typography variant="h5" align="center" gutterBottom style={{ marginTop: '2rem', color: '#333' }}>
         Submit a Recommendation
       </Typography>
 

@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component={Link} to="/" style={{ flexGrow: 1 }}>
+        <Typography variant="h6" component={Link} to="/" style={{ flexGrow: 1, color:'white' }}>
           Book Club
         </Typography>
         <Button color="inherit" component={Link} to="/bookclubs">

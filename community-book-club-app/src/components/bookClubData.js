@@ -175,3 +175,51 @@ export const bookClubs = [
     members: 28,
   },
 ];
+
+export const recommendedBooks = [
+  {
+    id: 1,
+    title: '1000 Years of Joys and Sorrows',
+    author: 'Ai Weiwei',
+    genre: 'Genre 1',
+    rating: 4.5,
+    image: 'https://api.time.com/wp-content/uploads/2021/11/100-best-books-1000-years-of-joys-and-sorrors.jpg?quality=85&w=600&h=600&crop=1',
+  },
+  {
+    id: 2,
+    title: 'Afterparties',
+    author: 'Anthony Veasna So',
+    genre: 'Genre 2',
+    rating: 4.2,
+    image: 'https://api.time.com/wp-content/uploads/2021/11/100-best-books-afterparties.jpg?quality=85&w=600&h=600&crop=1',
+  },
+  {
+    id: 2,
+    title: 'Cloud Cuckoo Land',
+    author: 'Anthony Doerr',
+    genre: 'Genre 2',
+    rating: 4.0,
+    image: 'https://api.time.com/wp-content/uploads/2021/11/100-best-books-code-breaker.jpg?quality=85&w=600&h=600&crop=1',
+  },
+];
+
+export const upcomingEvents = [
+  {
+    id: 1,
+    title: 'Marvels Event',
+    date: 'June 15, 2023',
+    time: '6:00 PM',
+    location: 'New York',
+    description: '2022 is shaping up to be a big year for exciting Marvel events. Chip Zdarsky is leading the Devil’s Reign event that shifted the paradigm in a big way for Daredevil, Kingpin, and Elektra beginning last year. It will end with an “Omega” issue in May.',
+    image: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F342047.jpg&f=1&nofb=1&ipt=2bcfc73b97335751316f4989dc2e6422f55943dcb72ae43f5bf04f09d02b9019&ipo=images',
+  },
+  {
+    id: 2,
+    title: 'DC Event',
+    date: 'June 20, 2023',
+    time: '7:30 PM',
+    location: 'London',
+    description: 'Atomic robots, alien worlds, mad scientists, sinister curses, and villains from throughout the DC Universe—welcome to the wild adventures of Billy Batson, whose big red alter ego defends the Earth from its weirdest and wildest threats!',
+    image:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fattackofthefanboy.com%2Fwp-content%2Fuploads%2F2016%2F01%2Fdc-universe-online.jpg&f=1&nofb=1&ipt=9ff31295b5e883a7f7046bdc6270ad8f576fac7a483fe9bac8c3817783447b24&ipo=images'
+  },
+];
