@@ -8,20 +8,19 @@ const DiscussionBoard = () => {
 
   const handleNewThreadSubmit = (event) => {
     event.preventDefault();
-  
-    //new discussion thread
+
     const newThread = {
       title: newThreadTitle,
       author: newThreadAuthor,
       comments: [],
       timestamp: new Date().toLocaleString(),
     };
-  
+
     setDiscussionThreads([...discussionThreads, newThread]);
     setNewThreadTitle('');
     setNewThreadAuthor('');
   };
-  
+
   const handleCommentSubmit = (threadIndex) => {
     return (event) => {
       event.preventDefault();
@@ -42,14 +41,15 @@ const DiscussionBoard = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h4" gutterBottom>
+    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem' }}>
+      <Typography variant="h4" align="center" gutterBottom>
         Discussion Board
       </Typography>
 
       {/* New Thread Form */}
-      <form onSubmit={handleNewThreadSubmit} style={{display:'flex', alignItems:'center'}}>
+      <form onSubmit={handleNewThreadSubmit} style={{ display: 'flex', alignItems: 'center' }}>
         <TextField
+        sx={{margin:'10px'}}
           required
           label="Thread Title"
           variant="outlined"
@@ -58,6 +58,7 @@ const DiscussionBoard = () => {
           onChange={(event) => setNewThreadTitle(event.target.value)}
         />
         <TextField
+         sx={{margin:'10px'}}
           required
           label="Your Name"
           variant="outlined"
@@ -65,7 +66,7 @@ const DiscussionBoard = () => {
           value={newThreadAuthor}
           onChange={(event) => setNewThreadAuthor(event.target.value)}
         />
-        <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary"  sx={{margin:'10px', width:'300px'}} >
           Create Thread
         </Button>
       </form>
@@ -74,7 +75,9 @@ const DiscussionBoard = () => {
       {discussionThreads.length > 0 ? (
         discussionThreads.map((thread, index) => (
           <div key={index} style={{ marginTop: '1rem' }}>
-            <Typography variant="h6">{thread.title}</Typography>
+            <Typography variant="h6" style={{ marginBottom: '0.5rem' }}>
+              {thread.title}
+            </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               Posted by: {thread.author} | {thread.timestamp}
             </Typography>
@@ -88,8 +91,9 @@ const DiscussionBoard = () => {
                 </ListItem>
               ))}
             </List>
-            <form onSubmit={handleCommentSubmit(index)} style={{display:'flex', alignItems:'center'}}>
+            <form onSubmit={handleCommentSubmit(index)} style={{ display: 'flex', alignItems: 'center' }}>
               <TextField
+                sx={{margin:'10px'}}
                 required
                 name="comment"
                 label="Add a comment"
@@ -103,7 +107,9 @@ const DiscussionBoard = () => {
           </div>
         ))
       ) : (
-        <Typography variant="body1">No discussions available.</Typography>
+        <Typography variant="body1" align="center" style={{ marginTop: '1rem', color: '#666' }}>
+          No discussions available.
+        </Typography>
       )}
     </div>
   );
